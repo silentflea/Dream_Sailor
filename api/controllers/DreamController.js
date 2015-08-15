@@ -6,6 +6,9 @@
  */
 
 module.exports = {
-	
+  list: function (request, result) {
+		Dream.find().sort("id desc").exec(function(err, dreams){
+			result.view('dream_list', {dreams: dreams})
+		})
+  }
 };
-
